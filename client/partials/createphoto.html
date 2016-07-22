@@ -1,0 +1,24 @@
+<div ng-controller='photosController as PC'>
+  <p> Welcome {{PC.user.name}}! <p>
+  <p><a href="#/dashpage">Home</a></p>
+  <p class='link' ng-click='PC.logout()'>
+    Logout
+  </p>
+
+  <div>
+    <h1>Create new picture</h1>
+    <input type="text" placeholder="Picture Name" ng-model='PC.newPhoto.name'>
+    <input type="text" placeholder="Tag" ng-model='PC.newPhoto.tag'>
+    <input type="text" placeholder="Url Link" ng-model='PC.newPhoto.url'>
+    <button ng-click='PC.addPhoto()'>Create</button>
+  </div>
+  <p ng-if='PC.picName'>
+    Picture name must be 4 or more characters
+  </p>
+  <p ng-if='PC.picTag'>
+    Tag must be 3 or more characters
+  </p>
+  <p ng-if='PC.picURL'>
+    URL is required
+  </p>
+</div>

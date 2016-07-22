@@ -1,0 +1,48 @@
+<div ng-controller='dashboardsController as DC'>
+  <p> Welcome {{DC.user.name}}! <p>
+  <p><a href="#/create">Create</a></p>
+  <p class='link' ng-click='DC.logout()'>
+    Logout
+  </p>
+
+  <h1>
+    Top 5 Most Liked Pictures
+  </h1>
+
+  <div>
+    <div ng-repeat='photo in DC.photos | orderBy: "-upvotes" | limitTo: 5'>
+      <p>{{ photo.name }}</p>
+      <p><img src="{{ photo.url }}" alt="/"></p>
+      <p>{{ photo.tag }}</p>
+      <p class='link' ng-click='DC.upVote(photo._id)'>{{ photo.upvotes }} upvotes</p>
+      <p class='link' ng-click='DC.downVote(photo._id)'>{{ photo.downvotes }} downvotes</p>
+      <hr>
+    </div>
+  </div>
+
+  <div>
+    <h1>All Photos</h1>
+    <p>
+      <input type="text" placeholder="Search Pictures" ng-model='photo_filter'>
+    </p>
+    <table>
+      <th>Name</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+      <th>Tag</th>
+      <th>Uploaded By</th>
+      <tr ng-repeat='photo in DC.photos | filter: photo_filter'>
+        <td>{{ photo.name }}</td>
+        <td class='link' ng-click='DC.upVote(photo._id)'>{{ photo.upvotes }}</td>
+        <td class='link' ng-click='DC.downVote(photo._id)'>{{ photo.downvotes }}</td>
+        <td>{{ photo.tag }}</td>
+        <td>
+          {{ photo.user }}
+          <a href="#/picture/{{photo.user}}" ng-if='photo.user == DC.user.name'>
+            <button>View Photos</button>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

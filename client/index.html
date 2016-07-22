@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+  <meta charset="UTF-8">
+  <title>MEAN belt exam #4</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+  <script src='/js/app.js'></script>
+  <script src='/js/controllers/users.js'></script>
+  <script src='/js/controllers/dashboards.js'></script>
+  <script src='/js/controllers/photos.js'></script>
+  <script src='/js/controllers/pictures.js'></script>
+
+
+  <!-- <script src='/js/controllers/bids.js'></script> -->
+  <!-- <script src='/js/controllers/results.js'></script> -->
+
+  <script src='/js/factories/user.js'></script>
+  <script src='/js/factories/photo.js'></script>
+
+  <!-- <script src='/js/factories/bid.js'></script> -->
+
+
+  <!-- <script src='/js/controllers/dashboards.js'></script>
+  <script src='/js/controllers/userpage.js'></script>
+
+  <script src='/js/factories/user.js'></script>
+  <script src='/js/factories/list.js'></script> -->
+
+  <link rel='stylesheet' type='text/css' href='/static/css/style.css'>
+</head>
+<body>
+  <div ng-view=''></div>
+</body>
+</html>

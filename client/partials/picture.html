@@ -1,0 +1,28 @@
+<div ng-controller='picturesController as UC'>
+  <p> Welcome {{UC.user.name}}! <p>
+  <p><a href="#/dashpage">Home</a></p>
+  <p><a href="#/create">Create</a></p>
+  <p class='link' ng-click='UC.logout()'>
+    Logout
+  </p>
+
+  <div>
+    <h1>My Photos</h1>
+    <table>
+      <th>Photo</th>
+      <th>Name</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+      <th>Tag</th>
+      <th>Action</th>
+      <tr ng-repeat='photo in UC.info | orderBy: "-upvotes"'>
+        <td><img src="{{ photo.url }}" alt="/"></td>
+        <td>{{ photo.name }}</td>
+        <td class='link' ng-click='UC.upVote(photo._id)'>{{ photo.upvotes }}</td>
+        <td class='link' ng-click='UC.downVote(photo._id)'>{{ photo.downvotes }}</td>
+        <td>{{ photo.tag }}</td>
+        <td ng-if='photo.user == UC.user.name'><button ng-click='UC.deletePic(photo._id)'>Delete</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
