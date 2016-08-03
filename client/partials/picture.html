@@ -14,7 +14,7 @@
   <div class='row container'>
     <h4 class='center-align'>My Photos</h4>
     <div class='col s10 offset-s1'>
-      <table class='highlight respnsive-table centered'>
+      <table class='highlight responsive-table centered'>
         <thead>
           <th>Photo</th>
           <th>Name</th>
@@ -27,11 +27,11 @@
           <tr ng-repeat='photo in UC.info | orderBy: "-upvotes"'>
             <td><img class='circle responsive-img' src="{{ photo.url }}" alt="/"></td>
             <td>{{ photo.name }}</td>
-            <td><a class="btn waves-effect waves-light center blue btn-table" href="" ng-click='UC.upVote(photo._id)'>{{ photo.upvotes }}</a></td>
-            <td><a class="btn waves-effect waves-light center red btn-table" href="" ng-click='UC.downVote(photo._id)'>{{ photo.downvotes }}</a></td>
+            <td class='blue-text'>{{ photo.upvotes }}</td>
+            <td class='red-text'>{{ photo.downvotes }}</td>
             <td>{{ photo.tag }}</td>
             <td>
-              <a class="waves-effect waves-light blue-grey darken-2 btn btn-small" href="" ng-if='photo.user == UC.user.name' ng-click='UC.deletePic(photo._id)'>Delete</a>
+              <a class="waves-effect waves-light blue-grey darken-2 btn btn-small" href="" ng-click='UC.deletePic(photo._id)'>Delete</a>
             </td>
           </tr>
         </tbody>
@@ -40,5 +40,6 @@
         <input type="text" placeholder="Search Pictures" ng-model='photo_filter'>
       </div>
     </div>
+
   </div>
 </div>
