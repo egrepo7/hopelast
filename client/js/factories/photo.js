@@ -13,9 +13,9 @@ myApp.factory('photoFactory', function($http){
       callback(photo)
     })
   }
-  factory.upVote = function(id, userID, callback){
-    console.log('@ photoFactory.upVote', id, userID)
-    $http.post('/upVote/'+ id + '/' + userID).success(function(){
+  factory.upVote = function(id, username, callback){
+    console.log('@ photoFactory.upVote', id, username)
+    $http.post('/upVote/'+ id + '/' + username).success(function(){
       callback()
     })
   }

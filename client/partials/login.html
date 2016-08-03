@@ -1,6 +1,27 @@
 <div ng-controller = 'usersController as UC'>
-  <p>
-    Name:<input type="text" ng-model='UC.newUser.name'>
-    <button ng-click='UC.logReg()'>Login</button>
-  </p>
+  <div class=''>
+    <nav class='grey darken-4'>
+      <div class="nav-wrapper">
+        <div class='container'>
+        <a href="#" class="brand-logo">Top 5 Pictures Project</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container row'>
+      <h2 class=''>Welcome!</h2>
+      <p class='left-align  flow-text'>This is the result of a Black Belt exam. Students from Coding Dojo are awarded a "Black Belt", the highest award given for achieving a score of at least 9.5 out of 10. This is the same exam I earned my Black Belt on.</p>
+      <p class='center-align'>Please login with Username: pikachu7</p>
+      <form class="col s12">
+        <div class='row'>
+          <div class='input-field col s6 offset-s3'>
+             <input placeholder="Username"type="text" ng-model='UC.newUser.name'>
+             <button ng-click='UC.logReg()' class="btn waves-effect waves-light blue-grey darken-2 right" type="submit" name="action">Login
+             <i class="material-icons right">send</i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class='section'></div>
+  </div>
 </div>

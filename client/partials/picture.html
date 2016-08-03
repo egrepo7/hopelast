@@ -1,28 +1,44 @@
 <div ng-controller='picturesController as UC'>
-  <p> Welcome {{UC.user.name}}! <p>
-  <p><a href="#/dashpage">Home</a></p>
-  <p><a href="#/create">Create</a></p>
-  <p class='link' ng-click='UC.logout()'>
-    Logout
-  </p>
+  <nav class='grey darken-4'>
+    <div class="nav-wrapper">
+      <div class='container'>
+      <a href="#" class="brand-logo">Top 5 Pictures Project</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#/dashpage">Home</a></li>
+        <li><a href="" ng-click='UC.logout()'>Logout</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
 
-  <div>
-    <h1>My Photos</h1>
-    <table>
-      <th>Photo</th>
-      <th>Name</th>
-      <th>Upvotes</th>
-      <th>Downvotes</th>
-      <th>Tag</th>
-      <th>Action</th>
-      <tr ng-repeat='photo in UC.info | orderBy: "-upvotes"'>
-        <td><img src="{{ photo.url }}" alt="/"></td>
-        <td>{{ photo.name }}</td>
-        <td class='link' ng-click='UC.upVote(photo._id)'>{{ photo.upvotes }}</td>
-        <td class='link' ng-click='UC.downVote(photo._id)'>{{ photo.downvotes }}</td>
-        <td>{{ photo.tag }}</td>
-        <td ng-if='photo.user == UC.user.name'><button ng-click='UC.deletePic(photo._id)'>Delete</button></td>
-      </tr>
-    </table>
+  <div class='row container'>
+    <h4 class='center-align'>My Photos</h4>
+    <div class='col s10 offset-s1'>
+      <table class='highlight respnsive-table centered'>
+        <thead>
+          <th>Photo</th>
+          <th>Name</th>
+          <th>Upvotes</th>
+          <th>Downvotes</th>
+          <th>Tag</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat='photo in UC.info | orderBy: "-upvotes"'>
+            <td><img class='circle responsive-img' src="{{ photo.url }}" alt="/"></td>
+            <td>{{ photo.name }}</td>
+            <td><a class="btn waves-effect waves-light center blue btn-table" href="" ng-click='UC.upVote(photo._id)'>{{ photo.upvotes }}</a></td>
+            <td><a class="btn waves-effect waves-light center red btn-table" href="" ng-click='UC.downVote(photo._id)'>{{ photo.downvotes }}</a></td>
+            <td>{{ photo.tag }}</td>
+            <td>
+              <a class="waves-effect waves-light blue-grey darken-2 btn btn-small" href="" ng-if='photo.user == UC.user.name' ng-click='UC.deletePic(photo._id)'>Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class='input-field col s10 offset-s1'>
+        <input type="text" placeholder="Search Pictures" ng-model='photo_filter'>
+      </div>
+    </div>
   </div>
 </div>

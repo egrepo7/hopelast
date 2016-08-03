@@ -15,14 +15,13 @@ myApp.controller('dashboardsController', function(userFactory, photoFactory, $lo
     self.photos = data
   })
 
-  self.upVote = function(id){
+  self.upVote = function(id, person){
     console.log(self.user)
     if(self.user.voted == 1){
       return
     }
-    self.userid = self.user.id
-    photoFactory.upVote(id, self.userid, function(){
-      console.log('sending 1 upvote', id)
+    photoFactory.upVote(id, self.user.name, function(){
+      console.log('sending 1 upvote', id, self.user.name)
       photoFactory.photoIndex(function(data){
         console.log('loading photo index', data)
         self.photos = data

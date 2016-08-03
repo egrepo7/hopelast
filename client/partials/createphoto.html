@@ -1,24 +1,42 @@
 <div ng-controller='photosController as PC'>
-  <p> Welcome {{PC.user.name}}! <p>
-  <p><a href="#/dashpage">Home</a></p>
-  <p class='link' ng-click='PC.logout()'>
-    Logout
-  </p>
+  <nav class='grey darken-4'>
+    <div class="nav-wrapper">
+      <div class='container'>
+      <a href="#" class="brand-logo">Top 5 Pictures Project</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#/dashpage">Home</a></li>
+        <li><a href="" ng-click='PC.logout()'>Logout</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
 
-  <div>
-    <h1>Create new picture</h1>
-    <input type="text" placeholder="Picture Name" ng-model='PC.newPhoto.name'>
-    <input type="text" placeholder="Tag" ng-model='PC.newPhoto.tag'>
-    <input type="text" placeholder="Url Link" ng-model='PC.newPhoto.url'>
-    <button ng-click='PC.addPhoto()'>Create</button>
+  <div class='container'>
+    <h3>Hello {{PC.user.name}}!</h3>
   </div>
-  <p ng-if='PC.picName'>
-    Picture name must be 4 or more characters
-  </p>
-  <p ng-if='PC.picTag'>
-    Tag must be 3 or more characters
-  </p>
-  <p ng-if='PC.picURL'>
-    URL is required
-  </p>
+
+  <div class='section'></div>
+
+  <div class='row'>
+    <form class='col s6 offset-s3'>
+      <div>
+        <h4>Add New Picture</h4>
+        <div class='input-field'>
+          <input type="text" placeholder="Picture Name" ng-model='PC.newPhoto.name'>
+          <input type="text" placeholder="Tag" ng-model='PC.newPhoto.tag'>
+          <input type="text" placeholder="Url Link" ng-model='PC.newPhoto.url'>
+        </div>
+        <button ng-click='PC.addPhoto()' class="btn waves-effect waves-light blue-grey darken-2 right" type="submit" name="action">Create</button>
+        <p ng-if='PC.picName'>
+          Picture name must be 4 or more characters
+        </p>
+        <p ng-if='PC.picTag'>
+          Tag must be 3 or more characters
+        </p>
+        <p ng-if='PC.picURL'>
+          URL is required
+        </p>
+      </div>
+    </form>
+  </div>
 </div>

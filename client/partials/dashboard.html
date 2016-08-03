@@ -1,48 +1,75 @@
 <div ng-controller='dashboardsController as DC'>
-  <p> Welcome {{DC.user.name}}! <p>
-  <p><a href="#/create">Create</a></p>
-  <p class='link' ng-click='DC.logout()'>
-    Logout
-  </p>
+  <nav class='grey darken-4'>
+    <div class="nav-wrapper">
+      <div class='container'>
+      <a href="#" class="brand-logo">Top 5 Pictures Project</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#/create">Create</a></li>
+        <li><a href="" ng-click='DC.logout()'>Logout</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
 
-  <h1>
-    Top 5 Most Liked Pictures
-  </h1>
+  <div class='container'>
+    <h3>Hello {{DC.user.name}}!</h3>
+  </div>
 
-  <div>
-    <div ng-repeat='photo in DC.photos | orderBy: "-upvotes" | limitTo: 5'>
-      <p>{{ photo.name }}</p>
-      <p><img src="{{ photo.url }}" alt="/"></p>
-      <p>{{ photo.tag }}</p>
-      <p class='link' ng-click='DC.upVote(photo._id)'>{{ photo.upvotes }} upvotes</p>
-      <p class='link' ng-click='DC.downVote(photo._id)'>{{ photo.downvotes }} downvotes</p>
-      <hr>
+  <div class='section'></div>
+
+  <div class='center-align'>
+    <h4>
+      Top 5 Most Liked Pictures
+    </h4>
+  </div>
+
+  <div class='row'>
+    <div class='col s12 center'>
+      <div class='photos center' ng-repeat='photo in DC.photos | orderBy: "-upvotes" | limitTo: 5'>
+        <div class='img center'>
+          <h6>{{ photo.name }}</h6>
+          <p><img class='circle responsive-img' src="{{ photo.url }}" alt="/"></p>
+          <p>{{ photo.tag }}</p>
+          <a class="btn waves-effect waves-light center light-blue lighten-1 btn-small" href="" ng-click='DC.upVote(photo._id)'>{{ photo.upvotes }} upvotes</a>
+          <a class="btn waves-effect waves-light center red darken-1 btn-small" href="" ng-click='DC.downVote(photo._id)'>{{ photo.downvotes }} downvotes</a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div>
-    <h1>All Photos</h1>
-    <p>
-      <input type="text" placeholder="Search Pictures" ng-model='photo_filter'>
-    </p>
-    <table>
-      <th>Name</th>
-      <th>Upvotes</th>
-      <th>Downvotes</th>
-      <th>Tag</th>
-      <th>Uploaded By</th>
-      <tr ng-repeat='photo in DC.photos | filter: photo_filter'>
-        <td>{{ photo.name }}</td>
-        <td class='link' ng-click='DC.upVote(photo._id)'>{{ photo.upvotes }}</td>
-        <td class='link' ng-click='DC.downVote(photo._id)'>{{ photo.downvotes }}</td>
-        <td>{{ photo.tag }}</td>
-        <td>
-          {{ photo.user }}
-          <a href="#/picture/{{photo.user}}" ng-if='photo.user == DC.user.name'>
-            <button>View Photos</button>
-          </a>
-        </td>
-      </tr>
-    </table>
+  <div class='section'>
+  </div>
+  <div class='section'>
+  </div>
+
+  <div class='row container'>
+    <h4 class='center-align'>All Photos</h4>
+    <div class='col s10 offset-s1'>
+      <table class='highlight respnsive-table centered'>
+        <thead>
+          <th>Name</th>
+          <th>Upvotes</th>
+          <th>Downvotes</th>
+          <th>Tag</th>
+          <th>Uploaded By</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat='photo in DC.photos | filter: photo_filter'>
+            <td>{{ photo.name }}</td>
+            <td><a class="btn waves-effect waves-light center light-blue lighten-1 btn-table" href="" ng-click='DC.upVote(photo._id)'>{{ photo.upvotes }}</a></td>
+            <td><a class="btn waves-effect waves-light center red darken-1 btn-table" href="" ng-click='DC.downVote(photo._id)'>{{ photo.downvotes }}</a></td>
+            <td>{{ photo.tag }}</td>
+            <td>{{ photo.user }}</td>
+            <td>
+              <a class="waves-effect waves-light blue-grey darken-2 btn btn-small" href="#/picture/{{photo.user}}" ng-if='photo.user == DC.user.name'>View Photos</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class='input-field col s10 offset-s1'>
+        <input type="text" placeholder="Search Pictures" ng-model='photo_filter'>
+      </div>
+    </div>
   </div>
 </div>

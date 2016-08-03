@@ -21,7 +21,7 @@ module.exports = (function(){
       })
     },
     up: function(req, res){
-      console.log(req.params)
+      console.log(req.params, '******************************')
       Photo.findOne({_id: req.params.id}, function(err, photo){
         if(err){
           res.json(err)

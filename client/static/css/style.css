@@ -3,3 +3,39 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+#top5 {
+  border: 1px solid black;
+}
+
+.photos {
+  width: 200px;
+  display: inline-block;
+}
+
+img {
+  width: 100px;
+}
+
+/*.navcontainer {
+  margin-left: 10px;
+}*/
+.pageheight {
+  height: 100%;
+}
+
+.btn-small {
+  width: 80%;
+  font-size:65%;
+}
+
+.btn-table {
+  width:60%;
+  font-size: 80%;
+  text-align: center;
+}
+
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
