@@ -30,8 +30,8 @@
           <h6>{{ photo.name }}</h6>
           <p><img class='circle responsive-img' src="{{ photo.url }}" alt="/"></p>
           <p>{{ photo.tag }}</p>
-          <a class="btn waves-effect waves-light center light-blue lighten-1 btn-small" href="" ng-click='DC.upVote(photo._id)'>{{ photo.upvotes }} upvotes</a>
-          <a class="btn waves-effect waves-light center red darken-1 btn-small" href="" ng-click='DC.downVote(photo._id)'>{{ photo.downvotes }} downvotes</a>
+          <a class="btn waves-effect waves-light center light-blue lighten-1 btn-top" href="" ng-click='DC.upVote(photo._id)'>{{ photo.upvotes }} upvotes</a>
+          <a class="btn waves-effect waves-light center red darken-1 btn-top" href="" ng-click='DC.downVote(photo._id)'>{{ photo.downvotes }} downvotes</a>
         </div>
       </div>
     </div>
