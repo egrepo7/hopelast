@@ -11,6 +11,6 @@ app.use(bodyParser.json())
 require('./server/config/mongoose.js')
 require('./server/config/routes.js')()
 
-app.listen(8000, function(){
+app.listen(7777, function(){
   console.log('******7777******')
 })
